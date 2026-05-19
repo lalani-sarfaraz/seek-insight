@@ -70,13 +70,15 @@ top_down = down.sort_values(
 
 prompt = f"""
 
-top_up = up.sort_values(
-    "log2FoldChange",
-    ascending=False
-).head(10)
+RNA-seq summary:
+- Significant genes: {len(sig)}
+- Upregulated genes: {len(up)}
+- Downregulated genes: {len(down)}
 
-top_down = down.sort_values(
-    "log2FoldChange"
-).head(10)
+Top upregulated genes:
+{top_up.to_string()}
+
+Top downregulated genes:
+{top_down.to_string()}
 
 """

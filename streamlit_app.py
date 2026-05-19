@@ -20,6 +20,7 @@ sig = df[df["padj"] < 0.05]
 up = sig[sig["log2FoldChange"] > 0]
 down = sig[sig["log2FoldChange"] < 0]
 
+st.write(f"Total genes: {len(df)}")
 st.write(f"Significant genes: {len(sig)}")
 st.write(f"Upregulated: {len(up)}")
 st.write(f"Downregulated: {len(down)}")

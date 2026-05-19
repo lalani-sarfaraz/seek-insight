@@ -68,7 +68,7 @@ top_down = down.sort_values(
 ).head(10)
 
 
-prompt = f"""
+prompt = st.write(f"""
 
 RNA-seq summary:
 - Significant genes: {len(sig)}
@@ -81,4 +81,4 @@ Top upregulated genes:
 Top downregulated genes:
 {top_down.to_string()}
 
-"""
+""")

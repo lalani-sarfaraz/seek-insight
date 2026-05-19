@@ -52,3 +52,31 @@ ax.set_title("Volcano plot")
 
 
 st.pyplot(fig)
+
+
+
+
+# LLM-based interpretation:
+
+top_up = up.sort_values(
+    "log2FoldChange",
+    ascending=False
+).head(10)
+
+top_down = down.sort_values(
+    "log2FoldChange"
+).head(10)
+
+
+prompt = f"""
+
+top_up = up.sort_values(
+    "log2FoldChange",
+    ascending=False
+).head(10)
+
+top_down = down.sort_values(
+    "log2FoldChange"
+).head(10)
+
+"""

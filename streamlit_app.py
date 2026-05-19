@@ -44,4 +44,4 @@ ax.scatter(
     s=5
 )
 
-st.pyplot(fig)
+st.pyplot()

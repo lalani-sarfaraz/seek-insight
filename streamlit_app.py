@@ -12,3 +12,14 @@ if uploaded_file:
     df = pd.read_csv(uploaded_file)
 
     st.write(df.head())
+
+
+
+sig = df[df["padj"] < 0.05]
+
+up = sig[sig["log2FoldChange"] > 0]
+down = sig[sig["log2FoldChange"] < 0]
+
+st.write(f"Significant genes: {len(sig)}")
+st.write(f"Upregulated: {len(up)}")
+st.write(f"Downregulated: {len(down)}")

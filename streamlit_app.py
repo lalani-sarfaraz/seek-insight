@@ -45,4 +45,10 @@ ax.scatter(
     s=5
 )
 
+ax.set_xlabel("log2 fold change")
+ax.set_ylabel("-log10 adjusted p-value")
+
+ax.set_title("Volcano plot")
+
+
 st.pyplot(fig)

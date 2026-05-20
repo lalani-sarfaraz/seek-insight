@@ -68,17 +68,10 @@ top_down = down.sort_values(
 ).head(10)
 
 
-prompt = st.write(f"""
+st.write(f"
+         Top upregulated genes:"
+         top_up.head())
 
-RNA-seq summary:
-- Significant genes: {len(sig)}
-- Upregulated genes: {len(up)}
-- Downregulated genes: {len(down)}
-
-Top upregulated genes:
-{top_up.head()}
-
-Top downregulated genes:
-{top_down.head()}
-
-""")
+st.write(f"         
+         Top downregulated genes:"
+         top_down.head())

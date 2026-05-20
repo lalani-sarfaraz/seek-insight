@@ -68,10 +68,10 @@ top_down = down.sort_values(
 ).head(10)
 
 
-st.write(f"
-         Top upregulated genes:"
+st.write(f"""
+         Top upregulated genes:"""
          top_up.head())
 
-st.write(f"         
-         Top downregulated genes:"
+st.write(f"""         
+         Top downregulated genes:"""
          top_down.head())

@@ -76,9 +76,9 @@ RNA-seq summary:
 - Downregulated genes: {len(down)}
 
 Top upregulated genes:
-{top_up.to_string()}
+{top_up.head()}
 
 Top downregulated genes:
-{top_down.to_string()}
+{top_down.head()}
 
 """)

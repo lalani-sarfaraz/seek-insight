@@ -83,7 +83,13 @@ st.write(f"""
 
 from openai import OpenAI
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+api_key = st.secrets.get("OPENAI_API_KEY")
+
+if not api_key:
+    st.error("OPENAI_API_KEY not found.")
+    st.stop()
+
+client = OpenAI(api_key=api_key)
 
 response = client.chat.completions.create(
     model="gpt-4.1-mini",

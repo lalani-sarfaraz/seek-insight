@@ -36,9 +36,11 @@ if not LOCAL_LM_URL:
     st.error("⚠️  Local LLM URL is missing. Set `LOCAL_LM_URL` in Streamlit secrets or env.")
     st.stop()
 
-# Tell the openai client where to find the local server
-openai.api_base = LOCAL_LM_URL
-openai.api_key  = LOCAL_LM_API_KEY
+# Create a single client that knows where the local server lives
+client = openai.OpenAI(
+    api_key=LOCAL_LM_API_KEY,
+    base_url=LOCAL_LM_URL
+)
 
 # Let the user pick a model that is available in LM Studio
 AVAILABLE_MODELS = ["gpt-oss-20b", "qwen3.6-27b"]  # <-- update if you loaded other models

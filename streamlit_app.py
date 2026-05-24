@@ -10,7 +10,7 @@ import google.generativeai as genai
 
 st.set_page_config(
     page_title="RNA-seq Results Interpreter",
-    layout="wide"
+    layout="centered"
 )
 
 st.title("RNA-seq Results Interpreter")
@@ -35,7 +35,7 @@ if not api_key:
 
 genai.configure(api_key=api_key)
 
-model = genai.GenerativeModel("gemini-3.1-pro-preview")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 # -----------------------------
 # FILE UPLOAD

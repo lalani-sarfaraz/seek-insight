@@ -2,4 +2,4 @@ numpy
 pandas
 matplotlib
 streamlit
-openai==0.28
+openai

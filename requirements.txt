@@ -2,4 +2,4 @@ numpy
 pandas
 matplotlib
 streamlit
-openai
+openai>=1.0

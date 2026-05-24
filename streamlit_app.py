@@ -130,7 +130,7 @@ Provide:
 """
         with st.spinner("Generating interpretation..."):
             try:
-                response = openai.ChatCompletion.create(
+                response = client.chat.completions.create(
                     model=selected_model,
                     messages=[
                         {"role": "system",
@@ -139,7 +139,7 @@ Provide:
                     ],
                     temperature=0.7,
                 )
-                ai_text = response["choices"][0]["message"]["content"]
+                ai_text = response.choices[0].message.content
                 st.subheader("AI Interpretation")
                 st.markdown(ai_text)
             except Exception as e:

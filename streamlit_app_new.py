@@ -256,10 +256,13 @@ def build_default_user_prompt(payload: Dict) -> str:
 
 
 def call_groq(messages: List[Dict], model: str, temperature: float = 0.2) -> str:
-    api_key = os.getenv("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY", None)
-    if not api_key:
-        raise ValueError("GROQ_API_KEY not found in environment or Streamlit secrets.")
+    api_key = os.getenv("GROQ_API_KEY")
+if not api_key and "GROQ_API_KEY" in st.secrets:
+    api_key = st.secrets["GROQ_API_KEY"]
 
+if not api_key:
+    raise ValueError("GROQ_API_KEY not found in environment or Streamlit secrets.")
+    
     client = Groq(api_key=api_key)
     response = client.chat.completions.create(
         model=model,

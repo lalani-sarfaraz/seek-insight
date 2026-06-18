@@ -1,2 +1,4 @@
 # Secret credentials - Never commit
 .env
+
+.streamlit/secrets.toml

@@ -255,14 +255,14 @@ def build_default_user_prompt(payload: Dict) -> str:
     )
 
 
-def call_groq(messages: List[Dict], model: str, temperature: float = 0.2) -> str:
+def call_groq(messages, model, temperature=0.2):
     api_key = os.getenv("GROQ_API_KEY")
-if not api_key and "GROQ_API_KEY" in st.secrets:
-    api_key = st.secrets["GROQ_API_KEY"]
+    if not api_key and "GROQ_API_KEY" in st.secrets:
+        api_key = st.secrets["GROQ_API_KEY"]
 
-if not api_key:
-    raise ValueError("GROQ_API_KEY not found in environment or Streamlit secrets.")
-    
+    if not api_key:
+        raise ValueError("GROQ_API_KEY not found in environment or Streamlit secrets.")
+
     client = Groq(api_key=api_key)
     response = client.chat.completions.create(
         model=model,
@@ -271,7 +271,6 @@ if not api_key:
         max_completion_tokens=1600,
     )
     return response.choices[0].message.content
-
 
 def init_chat_state():
     if "chat_history" not in st.session_state:

@@ -3,3 +3,4 @@ pandas
 matplotlib
 streamlit
 openai>=1.0
+plotly

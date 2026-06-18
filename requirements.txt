@@ -4,3 +4,5 @@ matplotlib
 streamlit
 openai>=1.0
 plotly
+gseapy
+groq

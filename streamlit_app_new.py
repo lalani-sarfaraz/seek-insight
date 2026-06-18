@@ -11,6 +11,10 @@ import streamlit as st
 import gseapy as gp
 from groq import Groq
 
+st.write("Current working dir secrets check")
+st.write("Secret keys loaded:", list(st.secrets.keys()))
+st.write("Has GROQ_API_KEY:", "GROQ_API_KEY" in st.secrets)
+
 
 st.set_page_config(
     page_title="DESeq2 Interpreter",
